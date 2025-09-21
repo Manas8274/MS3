@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Mobile No</th>
+        <th>Date of Birth</th>
+        <th>Salary</th>
+    </tr>
+
+    <tr *ngFor="let ss of finalData$ | async">
+        <td>{{ss.id}}</td>
+        <td>{{ss.username}}</td>
+        <td>{{ss.email}}</td>
+        <td>{{ss.mobileNo}}</td>
+        <td>{{ss.dateOfBirth}}</td>
+        <td>{{ss.salary}}</td>
+        <td><a routerLink="/viewById/{{ss.id}}">View</a></td>
+        <td><a routerLink="/viewById/{{ss.id}}" (click)="deleteStudent(ss.id)">Delete</a></td>
+        <td><a routerLink="/update/{{ss.id}}">Update</a></td>
+    </tr>
+</table>

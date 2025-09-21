@@ -1,0 +1,66 @@
+<form [formGroup]='fg' (ngSubmit)="updateStudent()">
+    <div>
+        <div>
+            <label>Username</label>
+            <input type="text" placeholder="Enter Username" formControlName="username">
+            <div *ngIf="fg.get('username')?.['invalid'] && (fg.get('username')?.['dirty'] || fg.get('username')?.['touched'])">
+                <small *ngIf="fg.get('username')?.errors?.['required']">
+                    Username is required
+                </small>
+                <small *ngIf="fg.get('username')?.errors?.['minlength'] || fg.get('username')?.errors?.['maxlength']">
+                    Username must be greater than 8 and less than 20
+                </small>
+               
+            </div>
+        </div>
+    
+        <div>
+            <label>Password</label>
+            <input type="password" placeholder="Enter Password" formControlName="password">
+            <div *ngIf="fg.get('password')?.['invalid'] && (fg.get('password')?.['touched'] || fg.get('password')?.['dirty'])">
+                <small *ngIf="fg.get('password')?.errors?.['required']">Password is required</small>
+                <small *ngIf="fg.get('password')?.errors?.['pattern']">Must follow the pattern</small>
+            </div>
+        </div>
+    
+        <div>
+            <label>Email</label>
+            <input type="text" placeholder="Enter Email" formControlName="email">
+            <div *ngIf="fg.get('email')?.['invalid'] && (fg.get('email')?.['touched'] || fg.get('dirty'))">
+                <small *ngIf="fg.get('email')?.errors?.['required']">Email is required</small>
+                <small *ngIf="fg.get('email')?.errors?.['email']"></small>
+            </div>
+        </div>
+    
+        <div>
+            <label>Mobile Number</label>
+            <input type="text" placeholder="Enter Mobile Number" formControlName="mobileNo">
+            <div *ngIf="fg.get('mobileNo')?.['invalid'] && (fg.get('mobileNo')?.['touched'] || fg.get('dirty'))">
+                <small *ngIf="fg.get('mobileNo')?.errors?.['required']">Mobile Number is required</small>
+                <small *ngIf="fg.get('mobileNo')?.errors?.['pattern']"></small>
+            </div>
+        </div>
+    
+        <div>
+            <label>Enter Salary</label>
+            <input type="text" placeholder="Enter your Salary" formControlName="salary">
+            <div *ngIf="fg.get('salary')?.['invalid'] && (fg.get('salary')?.['touched'] || fg.get('dirty'))">
+                <small *ngIf="fg.get('salary')?.errors?.['required']">Salary is required</small>
+                <small *ngIf="fg.get('salary')?.errors?.['invalidSalary']"></small>
+            </div>
+        </div>
+    
+    
+    
+    <div>
+            <label>Enter Date of Birth</label>
+            <input type="text" placeholder="Enter Date of Birth" formControlName="dateOfBirth">
+            <div *ngIf="fg.get('dateOfBirth')?.['invalid'] && (fg.get('dateOfBirth')?.['touched'] || fg.get('dirty'))">
+                <small *ngIf="fg.get('dateOfBirth')?.errors?.['required']">Date of Birth is required</small>
+                <small *ngIf="fg.get('dateOfBirth')?.errors?.['invalidDate']"></small>
+            </div>
+        </div>
+    </div>
+        <input type="submit" value="Update">
+        
+    </form>
